@@ -294,6 +294,9 @@ pasteButton.addEventListener("click", () => {
 document.getElementById("add-sheet-btn").addEventListener("click", () => {
     // logic for adding sheet
   
+    if(numSheets <3){
+
+    
     /// logic for saving prevSheets
     if (numSheets == 1) {
       var myArr = [matrix];
@@ -303,7 +306,9 @@ document.getElementById("add-sheet-btn").addEventListener("click", () => {
       var updatedSheets = [...prevSheets, matrix];
       localStorage.setItem("ArrMatrix", JSON.stringify(updatedSheets));
     }
-  
+}else{
+    alert("You can only add 3 sheets"); 
+}
     ///updateMy number of sheets
     numSheets++;
     currSheetNum = numSheets;
@@ -341,7 +346,8 @@ document.getElementById("add-sheet-btn").addEventListener("click", () => {
     document.getElementById("sheet-num").innerText = "Sheet No." + currSheetNum ;
 })
 
-document.getElementById("sheet-1").addEventListener("click", () => {
+document.getElementById("sheet-1").addEventListener("click",  () => {
+    document.getElementById("sheet-num").innerText = "Sheet No." + 1 ;
     var myArr = JSON.parse(localStorage.getItem("ArrMatrix"));
     let tableData = myArr[0];
     matrix = tableData;
@@ -357,6 +363,7 @@ document.getElementById("sheet-1").addEventListener("click", () => {
   });
 
 document.getElementById("sheet-2").addEventListener("click", () => {
+    document.getElementById("sheet-num").innerText = "Sheet No." + 2 ;
     var myArr = JSON.parse(localStorage.getItem("ArrMatrix"));
     let tableData = myArr[1];
     matrix = tableData;
@@ -372,6 +379,7 @@ document.getElementById("sheet-2").addEventListener("click", () => {
   });
 
 document.getElementById("sheet-3").addEventListener("click", () => {
+    document.getElementById("sheet-num").innerText = "Sheet No." + 3 ;
     var myArr = JSON.parse(localStorage.getItem("ArrMatrix"));
     let tableData = myArr[2];
     matrix = tableData;
